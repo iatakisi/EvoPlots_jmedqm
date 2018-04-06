@@ -58,7 +58,7 @@ void Hstack_Barrel()
   hs1->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l0 = new TLine(54,0,54,1.05);
   l0->SetLineColor(2);
@@ -78,7 +78,7 @@ void Hstack_Barrel()
 
 
   
-
+*/
 //define_Era  
 
 
@@ -127,7 +127,7 @@ void Hstack_Barrel()
   hs2->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l4 = new TLine(54,0,54,1.05);
   l4->SetLineColor(2);
@@ -146,7 +146,7 @@ void Hstack_Barrel()
   l7->Draw();
 
 
-
+*/
 
 //define_Era  
 
@@ -197,7 +197,7 @@ void Hstack_Barrel()
   hs3->Draw();
 
 //define_Era 
-
+/*
 
 
   TLine *l8 = new TLine(54,0,54,1.05);
@@ -216,7 +216,7 @@ void Hstack_Barrel()
   l11->SetLineColor(2);
   l11->Draw();
 
-
+*/
 //define_Era  
 
 

@@ -279,7 +279,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
   h1->SetMinimum(smallmean-0.5);
   h1->Draw("p");
 //define_Era 
-
+/*
   TLine *l0 = new TLine(13,smallmean-0.5,13,largemean+0.5);
   l0->SetLineColor(2);
   l0->Draw();
@@ -291,6 +291,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
   TLine *l2 = new TLine(99,smallmean-0.5,99,largemean+0.5);
   l2->SetLineColor(2);
   l2->Draw();
+.*/
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {

@@ -58,7 +58,7 @@ void Hstack_Eta_plus_26_28()
   hs1->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l0 = new TLine(54,0,54,1.05);
   l0->SetLineColor(2);
@@ -76,7 +76,7 @@ void Hstack_Eta_plus_26_28()
   l3->SetLineColor(2);
   l3->Draw();
 
-
+*/
 //define_Era  
 
 
@@ -125,7 +125,7 @@ void Hstack_Eta_plus_26_28()
   hs2->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l4 = new TLine(54,0,54,1.05);
   l4->SetLineColor(2);
@@ -144,7 +144,7 @@ void Hstack_Eta_plus_26_28()
   l7->Draw();
 
 
-
+*/
 
 //define_Era  
 
@@ -196,7 +196,7 @@ void Hstack_Eta_plus_26_28()
   hs3->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l8 = new TLine(54,0,54,1.05);
   l8->SetLineColor(2);
@@ -215,7 +215,7 @@ void Hstack_Eta_plus_26_28()
   l11->Draw();
 
 
-
+*/
 //define_Era  
 
 

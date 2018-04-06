@@ -58,7 +58,7 @@ void Hstack_EndCap()
   hs1->Draw();
 
 //define_Era 
-
+/*
   TLine *l0 = new TLine(54,0,54,1.05);
   l0->SetLineColor(2);
   l0->Draw();
@@ -76,7 +76,7 @@ void Hstack_EndCap()
   l3->Draw();
 
 
-
+*/
 //define_Era  
 
 
@@ -125,7 +125,7 @@ void Hstack_EndCap()
   hs2->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l4 = new TLine(54,0,54,1.05);
   l4->SetLineColor(2);
@@ -143,7 +143,7 @@ void Hstack_EndCap()
   l7->SetLineColor(2);
   l7->Draw();
 
-
+*/
 
 //define_Era  
 
@@ -194,7 +194,7 @@ void Hstack_EndCap()
   hs3->Draw();
 
 //define_Era 
-
+/*
 
   TLine *l8 = new TLine(54,0,54,1.05);
   l8->SetLineColor(2);
@@ -211,7 +211,7 @@ void Hstack_EndCap()
   TLine *l11 = new TLine(207,0,207,1.05);
   l11->SetLineColor(2);
   l11->Draw();
-
+*/
 //define_Era  
 
 
