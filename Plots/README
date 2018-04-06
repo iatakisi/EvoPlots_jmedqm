@@ -1,10 +1,2 @@
 
-
-			Time evolution plots build to help JMEDQM 
-These plots use the DQMIO files to show mean values of every run for each 1-D plot. 
-
-
-
-
-
-
+Once you run the code, you will able to find all the ".root", ".pdf" and ".png" files in this directory.
