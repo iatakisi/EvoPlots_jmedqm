@@ -1,13 +1,10 @@
-/* 
-
+/*
 Run this macro using 
 root -l -b -q FracTimeEvo.C\(\"rootfiles.txt\",\"JetMET/Run\ summary/Jet/Cleanedak4PFJets/CHEn_mediumPt_EndCap\"\)
-
-
 First argument is text file with list of the rootfiles 
 Second argument is name of the variable whose summary plot is needed
 */
-
+#include "TH1.h"
 #include "TH2D.h"
 #include "TH1D.h"
 #include "TH1F.h"
@@ -24,6 +21,7 @@ Second argument is name of the variable whose summary plot is needed
 #include "TMatrixD.h"
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -255,7 +253,8 @@ void FracTimeEvo(TString rootfileList, TString postname)
     fin->Close();
     
   }
- 
+    ofstream wmean ("Plots/mean.txt");
+
   //histogram
   
   
@@ -264,10 +263,15 @@ void FracTimeEvo(TString rootfileList, TString postname)
   c1->SetGrid();
   c1->SetLeftMargin(0.15);
   c1->SetBottomMargin(0.15);
+  wmean<<nFiles<<endl;
+  wmean<<largemean<<endl;
+  wmean<<smallmean<<endl;  
   TH1F *h1 = new TH1F("h1","Mean Values",nFiles,-0.5,nFiles-0.5);
   for (Int_t i=0;i<nFiles;i++) {
     //cout << mean[i] << endl;
     h1->Fill(i, mean[i]);
+    wmean<<mean[i]<<endl;
+    wmean<<runno[i]<<endl;
   }
   h1->SetStats(0);
   h1->SetMarkerStyle(20);
@@ -283,11 +287,9 @@ void FracTimeEvo(TString rootfileList, TString postname)
   TLine *l0 = new TLine(13,smallmean-0.5,13,largemean+0.5);
   l0->SetLineColor(2);
   l0->Draw();
-
   TLine *l1 = new TLine(80,smallmean-0.5,80,largemean+0.5);
   l1->SetLineColor(2);
   l1->Draw();
-
   TLine *l2 = new TLine(99,smallmean-0.5,99,largemean+0.5);
   l2->SetLineColor(2);
   l2->Draw();
@@ -295,22 +297,21 @@ void FracTimeEvo(TString rootfileList, TString postname)
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {
-    if((i %10)==0){h1->GetXaxis()->SetBinLabel(i+1,runno[i]);}
+    if((i %1)==0){h1->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
   gPad->Update();
-  
   if ((zeromean != 0)&&(zerorms != 0)){//this statement defined to get rid of empty histograms
       c1->SaveAs("Plots/mean_"+pdfname+".pdf");
       c1->SaveAs("Plots/mean_"+pdfname+".png");
-      TFile *rootfile1=new TFile("Plots/mean_"+pdfname+".root","NEW");
-      h1->Write();
+      //TFile *rootfile1=new TFile("Plots/bin80_"+pdfname+".root","NEW");
+      //h1->Write();
 
   }
 
 //histograms of means
 
-  
+/*
   
 //histograms of bin80
   TCanvas *c3 = new TCanvas("c3","bin80",1800,800);
@@ -335,7 +336,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {
-    if((i %10)==0){h3->GetXaxis()->SetBinLabel(i+1,runno[i]);}
+    if((i %1)==0){h3->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
   gPad->Update();
@@ -343,8 +344,8 @@ void FracTimeEvo(TString rootfileList, TString postname)
   if (zerobin80 != 0){//this statement defined to get rid of empty histograms
       c3->SaveAs("Plots/bin80_"+pdfname+".pdf");
       c3->SaveAs("Plots/bin80_"+pdfname+".png");
-      TFile *rootfile3=new TFile("Plots/bin80_"+pdfname+".root","NEW");
-      h3->Write();
+//      TFile *rootfile3=new TFile("Plots/bin80_"+pdfname+".root","NEW");
+//      h3->Write();
 
   }
 //histograms of bin80
@@ -377,7 +378,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {
-    if((i %10)==0){h4->GetXaxis()->SetBinLabel(i+1,runno[i]);}
+    if((i %1)==0){h4->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
   gPad->Update();
@@ -385,8 +386,8 @@ void FracTimeEvo(TString rootfileList, TString postname)
   if (zerobin79 != 0){//this statement defined to get rid of empty histograms
       c4->SaveAs("Plots/bin79_"+pdfname+".pdf");
       c4->SaveAs("Plots/bin79_"+pdfname+".png");
-      TFile *rootfile4=new TFile("Plots/bin79_"+pdfname+".root","NEW");
-      h4->Write();
+//      TFile *rootfile4=new TFile("Plots/bin79_"+pdfname+".root","NEW");
+//      h4->Write();
   }
 //histograms of bin79
 
@@ -415,7 +416,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {
-    if((i %10)==0){h5->GetXaxis()->SetBinLabel(i+1,runno[i]);}
+    if((i %1)==0){h5->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
   gPad->Update();
@@ -423,8 +424,8 @@ void FracTimeEvo(TString rootfileList, TString postname)
   if (zerobin22 != 0){//this statement defined to get rid of empty histograms
       c5->SaveAs("Plots/bin22_"+pdfname+".pdf");
       c5->SaveAs("Plots/bin22_"+pdfname+".png");
-      TFile *rootfile5=new TFile("Plots/bin22_"+pdfname+".root","NEW");
-      h5->Write();
+//      TFile *rootfile5=new TFile("Plots/bin22_"+pdfname+".root","NEW");
+//      h5->Write();
 
   }
 //histograms of bin22
@@ -454,7 +455,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 //define_Era  
   // draw labels along X
   for (i=0;i<nFiles;i++) {
-    if((i %10)==0){h6->GetXaxis()->SetBinLabel(i+1,runno[i]);}
+    if((i %1)==0){h6->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
   gPad->Update();
@@ -462,8 +463,8 @@ void FracTimeEvo(TString rootfileList, TString postname)
   if (zerobin23 != 0){//this statement defined to get rid of empty histograms
       c6->SaveAs("Plots/bin23_"+pdfname+".pdf");
       c6->SaveAs("Plots/bin23_"+pdfname+".png");
-      TFile *rootfile6=new TFile("Plots/bin23_"+pdfname+".root","NEW");
-      h6->Write();
+//      TFile *rootfile6=new TFile("Plots/bin23_"+pdfname+".root","NEW");
+//      h6->Write();
   }
 //histograms of bin23
 
@@ -471,7 +472,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
   
   
   
-  
+*/
   
   
   
@@ -524,4 +525,3 @@ std::vector<std::string> split(const std::string& text, const std::string& delim
   
   return tokens;
 }
-
