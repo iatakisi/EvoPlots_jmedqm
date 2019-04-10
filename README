@@ -2,7 +2,9 @@
 
 			Time evolution plots build to help JMEDQM 
 These plots use the DQMIO files to show mean values of every run for each 1-D plot. 
-
+link your files location to DQMFiles after you entered the directory.
+cd <username/..../EvoPlots_jmedqm/>
+ln -s ../jecsys/rootfiles DQMFiles
 
 
 
