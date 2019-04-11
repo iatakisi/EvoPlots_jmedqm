@@ -79,7 +79,7 @@ void meanrootcreate(TString pdfname)
 .*/
 //define_Era  
   // draw labels along X
-  for (i=0;i<nFiles;i++) {
+  for (int i=0;i<nFiles;i++) {
      TString runno1=runno[i];
     if((i %1)==0){h1->GetXaxis()->SetBinLabel(i+1,runno1);}
   }

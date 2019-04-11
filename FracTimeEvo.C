@@ -94,6 +94,14 @@ void FracTimeEvo(TString rootfileList, TString postname)
   
   std::cout<<" before for loop"<<std::endl;
 
+      
+    double smallmean = pow(2,16);
+    double largemean = -pow(2,16);
+    double smallRMS = pow(2,16);
+    double largeRMS = -pow(2,16);
+  
+  
+  
   TString pdfname;
   for (int ii=0; ii<(int)lines.size(); ii++){
     // Extract the number from the rootfile
@@ -121,8 +129,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
     // Read the rootfile 
     fin = new TFile(lines.at(ii).c_str());
     //fin->ls();
-    
-    
+
     // Get the histogram
     TH1F* h = (TH1F*) fin->Get(histname_);
     
@@ -162,8 +169,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
     bin23[ii] =h->GetBinContent(23);    
     zerobin23 += bin23[ii];
 
-    double smallmean = pow(2,16);
-    double largemean = -pow(2,16);
+
     for (int j = 0; j < nFiles; j++) 
       {
 	if (mean[j] < smallmean) 
@@ -176,8 +182,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 	  }
       }
 
-    double smallRMS = pow(2,16);
-    double largeRMS = -pow(2,16);
+
     for (int jj = 0; jj < nFiles; jj++)
       {
 	if (RMS[jj] < smallRMS)
@@ -296,7 +301,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
 .*/
 //define_Era  
   // draw labels along X
-  for (i=0;i<nFiles;i++) {
+  for (int i=0;i<nFiles;i++) {
     if((i %1)==0){h1->GetXaxis()->SetBinLabel(i+1,runno[i]);}
   }
   gPad->Modified();
@@ -502,7 +507,7 @@ void FracTimeEvo(TString rootfileList, TString postname)
   l->Draw();
 //define_Era  
   // draw labels along X
-  for (i=0;i<nFiles;i++) {
+  for (int i=0;i<nFiles;i++) {
     h2->GetXaxis()->SetBinLabel(i+1,runno[i]);
   }
   gPad->Modified();
